@@ -27,7 +27,8 @@ COPY ./docker-entrypoint.sh /
 
 ARG ANSIBLE_VERSION=2.0
 
-RUN virtualenv --no-site-packages /home/webserver/defaultenv && \
+RUN virtualenv --no-site-packages /home/webserver/defaultenv && \ 
+    mkdir /docker-entrypoint-initdb.d && \
     /home/webserver/defaultenv/bin/pip install ansible==${ANSIBLE_VERSION} && \
     echo "export TERM=rxvt-unicode" >> /home/webserver/.bashrc && \
     echo "source /home/webserver/defaultenv/bin/activate" >> /home/webserver/.bashrc
