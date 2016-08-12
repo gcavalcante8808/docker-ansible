@@ -10,6 +10,12 @@ Build the image
     docker build -t gcavalcante8808/ansible .
 ```
 
+If you want to build an image with a specific version of ansible (2.1 in the sample), you can do the following:
+
+```
+    docker build --build-arg ANSBILE_VERSION=2.1 -t gcavalcante8808/ansible:2.1 . 
+```
+
 Usage
 =====
 
