@@ -31,7 +31,9 @@ RUN virtualenv --no-site-packages /home/webserver/defaultenv && \
     mkdir /docker-entrypoint-initdb.d && \
     /home/webserver/defaultenv/bin/pip install ansible==${ANSIBLE_VERSION} && \
     echo "export TERM=rxvt-unicode" >> /home/webserver/.bashrc && \
-    echo "source /home/webserver/defaultenv/bin/activate" >> /home/webserver/.bashrc
+    echo "source /home/webserver/defaultenv/bin/activate" >> /home/webserver/.bashrc &&
+    ln -s /home/webserver/defaultenv/bin/ansible /usr/bin/ansible &&
+    ln -s /home/webserver/defaultenv/bin/ansible-playbook /usr/bin/ansible-playbook
 
 WORKDIR /home/webserver
 RUN mkdir -p ansible/{playbooks,roles,files} && \
