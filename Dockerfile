@@ -25,7 +25,7 @@ RUN groupadd -g 10000 webserver && \
 
 COPY ./docker-entrypoint.sh /
 
-ARG ANSIBLE_VERSION=1.9.6
+ARG ANSIBLE_VERSION=2.0.0.0
 
 RUN virtualenv --no-site-packages /home/webserver/defaultenv && \ 
     mkdir /docker-entrypoint-initdb.d && \
