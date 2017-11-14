@@ -1,4 +1,4 @@
-FROM debian:jessie
+FROM debian:9
 
 RUN groupadd -g 10000 webserver && \
     useradd -m -g webserver webserver -u 10000 && \
@@ -25,7 +25,7 @@ RUN groupadd -g 10000 webserver && \
 
 COPY ./docker-entrypoint.sh /
 
-ARG ANSIBLE_VERSION=2.4.1.0
+ARG ANSIBLE_VERSION=1.9.4
 
 RUN virtualenv --no-site-packages /home/webserver/defaultenv && \ 
     mkdir /docker-entrypoint-initdb.d && \
