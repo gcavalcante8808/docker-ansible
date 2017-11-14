@@ -1,4 +1,4 @@
-FROM debian:jessie
+FROM debian:9
 
 RUN groupadd -g 10000 webserver && \
     useradd -m -g webserver webserver -u 10000 && \
